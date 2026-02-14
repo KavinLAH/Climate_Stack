@@ -1,0 +1,74 @@
+# PestCast ML Training Configuration
+
+# Dataset
+dataset:
+  name: ip102
+  root_dir: ./data/ip102
+  num_workers: 4
+  # 15 priority pest species from IP102 (class indices)
+  # Curated for agricultural relevance + demo impact
+  target_classes:
+    0: "rice leafroller"
+    1: "rice leaf caterpillar"
+    4: "asian corn borer"
+    8: "corn borer"
+    12: "armyworm"
+    14: "corn earworm"
+    24: "peach borer"
+    28: "fall webworm"
+    33: "aphids"
+    38: "whitefly"
+    42: "mites"
+    55: "thrips"
+    70: "sawfly"
+    82: "rice grasshopper"
+    99: "beetle"
+
+# Model
+model:
+  architecture: efficientnet_lite0
+  pretrained: true
+  num_classes: 15
+  input_size: 224
+  dropout: 0.2
+
+# Training
+training:
+  epochs: 20
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  lr_scheduler: cosine
+  warmup_epochs: 2
+  freeze_backbone_epochs: 5   # freeze base layers for first N epochs
+  label_smoothing: 0.1
+
+# Augmentation
+augmentation:
+  random_horizontal_flip: true
+  random_rotation: 15
+  color_jitter:
+    brightness: 0.2
+    contrast: 0.2
+    saturation: 0.2
+    hue: 0.1
+  random_resized_crop:
+    scale: [0.8, 1.0]
+
+# Splits
+splits:
+  train: 0.8
+  val: 0.1
+  test: 0.1
+  seed: 42
+
+# Quantization
+quantization:
+  method: int8
+  calibration_samples: 200
+
+# Paths
+paths:
+  checkpoint_dir: ./models/checkpoints
+  export_dir: ./models/export
+  logs_dir: ./models/logs

@@ -1,0 +1,21 @@
+# Data
+data/
+!data/.gitkeep
+
+# Model artifacts
+models/checkpoints/
+models/export/
+models/logs/
+*.tflite
+*.onnx
+*.pth
+*.pt
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# IDE
+.vscode/
+.idea/
