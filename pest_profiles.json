@@ -1,0 +1,62 @@
+{
+  "version": "1.0",
+  "units": {
+    "temperature": "C",
+    "humidity": "%",
+    "distance": "km",
+    "speed": "km/h"
+  },
+  "profiles": [
+    {
+      "species": "Spodoptera frugiperda",
+      "common_name": "Fall Armyworm",
+      "migration": {
+        "typical_night_flight_km": 50,
+        "favorable_wind_night_flight_km": 100,
+        "max_documented_event_km": 400,
+        "wind_assisted": true
+      },
+      "climate_preferences": {
+        "min_temp_c": 10,
+        "optimal_temp_c": [20, 30],
+        "max_temp_c": 35,
+        "preferred_humidity_percent": [60, 85]
+      },
+      "behavior_notes": "Strong nocturnal flier; long-distance movement increases with tailwinds and warm nights. Development slows below ~15°C."
+    },
+    {
+      "species": "Aphididae",
+      "common_name": "Aphids",
+      "migration": {
+        "typical_flight_km": 5,
+        "wind_drift_event_km": 50,
+        "max_documented_event_km": 200,
+        "wind_assisted": true
+      },
+      "climate_preferences": {
+        "min_temp_c": 5,
+        "optimal_temp_c": [15, 25],
+        "max_temp_c": 32,
+        "preferred_humidity_percent": [50, 80]
+      },
+      "behavior_notes": "Small-bodied insects with short powered flights; regional spread often occurs via wind-assisted drift. Population growth accelerates in mild temperatures."
+    },
+    {
+      "species": "Aleyrodidae",
+      "common_name": "Whiteflies",
+      "migration": {
+        "typical_flight_km": 1,
+        "wind_drift_event_km": 20,
+        "max_documented_event_km": 80,
+        "wind_assisted": true
+      },
+      "climate_preferences": {
+        "min_temp_c": 10,
+        "optimal_temp_c": [20, 30],
+        "max_temp_c": 35,
+        "preferred_humidity_percent": [55, 85]
+      },
+      "behavior_notes": "Weak fliers; dispersal is mostly local unless aided by wind. Warm conditions support rapid reproduction and colony expansion."
+    }
+  ]
+}
