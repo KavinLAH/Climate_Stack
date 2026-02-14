@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Any, Dict, List
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
 from climate_data_pipeline import predict_pest_expansion
@@ -14,20 +14,33 @@ from climate_data_pipeline import predict_pest_expansion
 app = FastAPI(title="PestCast Prediction API")
 
 
-class Sighting(BaseModel):
-    lat: float = Field(..., ge=-90, le=90)
-    lon: float = Field(..., ge=-180, le=180)
-    timestamp: datetime
-
-
 class PredictRequest(BaseModel):
-    sightings: List[Sighting]
-    climate_geojson: Dict[str, Any]
+    sightings: List[List[Any]] = Field(
+        ...,
+        description="List of [lat, lon, timestamp] sightings.",
+    )
+    climate_data: Dict[str, Any]
 
 
 @app.post("/predict")
 def predict(request: PredictRequest) -> Dict[str, Any]:
-    cluster_data = [
-        (s.lat, s.lon, s.timestamp.isoformat()) for s in request.sightings
-    ]
-    return predict_pest_expansion(cluster_data, request.climate_geojson)
+    cluster_data = []
+    for item in request.sightings:
+        if not isinstance(item, list) or len(item) != 3:
+            raise HTTPException(
+                status_code=422,
+                detail="Each sighting must be [lat, lon, timestamp].",
+            )
+        lat, lon, timestamp = item
+        if isinstance(timestamp, datetime):
+            timestamp_value = timestamp.isoformat()
+        else:
+            timestamp_value = str(timestamp)
+        cluster_data.append((float(lat), float(lon), timestamp_value))
+
+    return predict_pest_expansion(cluster_data, request.climate_data)
+
+
+@app.get("/health")
+def health() -> Dict[str, str]:
+    return {"status": "ok"}
