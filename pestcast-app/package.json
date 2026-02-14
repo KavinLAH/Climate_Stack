@@ -1,0 +1,36 @@
+{
+  "name": "pestcast-app",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@gorhom/bottom-sheet": "^5.2.8",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-native-community/netinfo": "11.4.1",
+    "@rnmapbox/maps": "^10.2.10",
+    "@supabase/supabase-js": "^2.95.3",
+    "expo": "~54.0.33",
+    "expo-camera": "~17.0.10",
+    "expo-file-system": "~19.0.21",
+    "expo-location": "~19.0.8",
+    "expo-status-bar": "~3.0.9",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-gesture-handler": "~2.28.0",
+    "react-native-get-random-values": "^2.0.0",
+    "react-native-reanimated": "~4.1.1",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "~19.1.0",
+    "@types/uuid": "^10.0.0",
+    "babel-preset-expo": "^54.0.10",
+    "typescript": "~5.9.2"
+  },
+  "private": true
+}

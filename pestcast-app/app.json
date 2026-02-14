@@ -1,0 +1,56 @@
+{
+  "expo": {
+    "name": "PestCast",
+    "slug": "pestcast-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": false,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0a0e17"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.pestcast.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "PestCast needs camera access to photograph and identify pests.",
+        "NSLocationWhenInUseUsageDescription": "PestCast needs your location to tag sightings with GPS coordinates."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0a0e17"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "package": "com.pestcast.app",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsImpl": "mapbox"
+        }
+      ],
+      "expo-camera",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "PestCast needs your location to tag sightings with GPS coordinates."
+        }
+      ]
+    ]
+  }
+}
