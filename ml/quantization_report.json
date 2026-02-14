@@ -1,0 +1,8 @@
+{
+  "keras_accuracy": 0.765482485294342,
+  "int8_accuracy": 0.7652102899142507,
+  "accuracy_drop_pct": 0.02721953800913779,
+  "within_budget": true,
+  "float32_size_mb": 15.920936584472656,
+  "int8_size_mb": 8.018695831298828
+}

@@ -1,0 +1,6 @@
+{
+  "top1_accuracy": 0.7654825098679733,
+  "top3_accuracy": 0.9228256431196407,
+  "num_test_images": 7347,
+  "target_met": true
+}

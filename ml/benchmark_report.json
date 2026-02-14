@@ -1,0 +1,15 @@
+{
+  "model_path": "/Users/kagarwal/Library/CloudStorage/OneDrive-Personal/hackathon/pest_model.tflite",
+  "model_size_mb": 8.018695831298828,
+  "num_test_images": 100,
+  "results_224": {
+    "mean_ms": 18.37866754000006,
+    "median_ms": 18.353228999999693,
+    "p95_ms": 18.670041349999742,
+    "min_ms": 18.081875000000025,
+    "max_ms": 19.250041999999468,
+    "std_ms": 0.16471238337522065,
+    "accuracy": 0.79,
+    "target_met": true
+  }
+}
